@@ -1,1 +1,1 @@
-cat  $(dirname "$0")/patch_llvm.txt >> $(dirname "$0")/ferrocene/config.toml
+cat  $(dirname "$0")/config.toml >> $(dirname "$0")/ferrocene/config.toml

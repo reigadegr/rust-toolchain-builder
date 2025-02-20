@@ -27,6 +27,7 @@ jobs:
       - name: Build
         run: |
           cd ferrocene
+          cargo build --target aarch64-unknown-linux-gnu || true
           sh  ../patch_llvm.sh
           sudo chmod +x x.py          
           ./x.py build --target aarch64-unknown-linux-gnu --stage 2

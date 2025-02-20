@@ -22,8 +22,9 @@ jobs:
           rustup update
       - name: Other deps
         run: |
-          sudo apt update
-          sudo apt install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
       - name: Build
         run: |
           cd ferrocene

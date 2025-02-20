@@ -23,15 +23,15 @@ jobs:
       - name: Other deps
         run: |
           sudo apt-get update
-          sudo apt-get upgrade -y
+          # sudo apt-get upgrade -y
           sudo apt-get install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build gcc
       - name: Build
         run: |
           cd ferrocene
-          cargo build --target aarch64-unknown-linux-gnu -Z build-std || true
+          cargo build -Z build-std || true
           sh  ../patch_llvm.sh
           sudo chmod +x x.py          
-          ./x.py build --target aarch64-unknown-linux-gnu --stage 2 --tool rustc,clippy
+          ./x.py build --stage 2
           
       - name: Upload release version
         uses: actions/upload-artifact@v4

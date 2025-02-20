@@ -31,13 +31,13 @@ jobs:
           cargo build -Z build-std || true
           sh  ../patch_llvm.sh
           sudo chmod +x x.py          
-          ./x.py build --stage 2
+          ./x.py dist --stage 2
           
       - name: Upload release version
         uses: actions/upload-artifact@v4
         with:
           name: config_toml
           compression-level: 9
-          path: ferrocene/build
+          path: ferrocene/build/dist
           
           

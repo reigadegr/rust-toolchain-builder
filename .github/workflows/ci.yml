@@ -30,7 +30,7 @@ jobs:
           # sh  ../patch_llvm.sh
           ./configure --enable-cargo-native-static --enable-llvm-static-stdcpp
           sudo chmod +x x.py          
-          ./x.py dist --stage 2 || true
+          ./x.py dist --stage 2
           
       - name: Upload release version
         uses: actions/upload-artifact@v4

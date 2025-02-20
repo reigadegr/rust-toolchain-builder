@@ -1,0 +1,64 @@
+# Use different pre-set defaults than the global defaults.
+#
+# See `src/bootstrap/defaults` for more information.
+# Note that this has no default value (x.py uses the defaults in `config.example.toml`).
+profile = 'dist'
+
+# Keeps track of the last version of `x.py` used.
+# If `changelog-seen` does not match the version that is currently running,
+# `x.py` will prompt you to update it and to read the changelog.
+# See `src/bootstrap/CHANGELOG.md` for more information.
+# changelog-seen = 2
+
+[llvm]
+
+# Whether to use Rust CI built LLVM instead of locally building it.
+#
+# Unless you're developing for a target where Rust CI doesn't build a compiler
+# toolchain or changing LLVM locally, you probably want to leave this enabled.
+#
+# All tier 1 targets are currently supported; set this to `"if-available"` if
+# you are not sure whether you're on a tier 1 target.
+#
+# We also currently only support this when building LLVM for the build triple.
+#
+# Note that many of the LLVM options are not currently supported for
+# downloading. Currently only the "assertions" option can be toggled.
+download-ci-llvm = false
+
+# When true, link libstdc++ statically into the rustc_llvm.
+# This is useful if you don't want to use the dynamic version of that
+# library provided by LLVM.
+static-libstdcpp = true
+
+[build]
+
+# Indicates whether the native libraries linked into Cargo will be statically
+# linked or not.
+cargo-native-static = true
+
+# print-step-timings = true
+
+# Arguments passed to the `./configure` script, used during distcheck. You
+# probably won't fill this in but rather it's filled in by the `./configure`
+# script. Useful for debugging.
+configure-args = ['--set', 'llvm.download-ci-llvm=false', '--enable-cargo-native-static', '--enable-llvm-static-stdcpp', '--dist-compression-formats=xz', '--release-channel=stable']
+
+[install]
+
+[rust]
+
+# The "channel" for the Rust build to produce. The stable/beta channels only
+# allow using stable features, whereas the nightly and dev channels allow using
+# nightly features
+channel = 'stable'
+
+[target.x86_64-pc-windows-msvc]
+
+[dist]
+
+# List of compression formats to use when generating dist tarballs. The list of
+# formats is provided to rust-installer, which must support all of them.
+#
+# This list must be non-empty.
+compression-formats = ['xz']

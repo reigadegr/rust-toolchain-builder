@@ -24,11 +24,19 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build libuv1-dev
+      - name: Install uv
+        run: |
+          git clone https://github.com/libuv/libuv.git
+          cd libuv
+          sh autogen.sh
+          ./configure
+          make -j8
+          sudo make install
       - name: Build
         run: |
           cd ferrocene
-          # sh  ../patch_llvm.sh
-          ./configure --enable-cargo-native-static --enable-llvm-static-stdcpp
+          sh  ../patch_llvm.sh
+          # ./configure --enable-cargo-native-static --enable-llvm-static-stdcpp
           sudo chmod +x x.py          
           ./x.py dist --stage 2
           
@@ -45,3 +53,4 @@ jobs:
           name: dist_package
           compression-level: 9
           path: ferrocene/dist          
+          

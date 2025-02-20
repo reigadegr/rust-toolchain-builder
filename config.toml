@@ -26,7 +26,7 @@ configure-args = ['--enable-cargo-native-static', '--enable-llvm-static-stdcpp']
 
 [rust]
 
-[target.aarch64-unknown-linux-gnu]
+[target.x86_64-unknown-linux-gnu]
 
 [dist]
 

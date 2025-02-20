@@ -23,10 +23,11 @@ jobs:
       - name: Other deps
         run: |
           sudo apt update
-          sudo apt install gcc-multilib llvm clang make cmake
+          sudo apt install gcc-multilib llvm clang make cmake libclang-dev llvm-dev
       - name: Build
         run: |
           cd ferrocene
+          sh  ../patch_llvm.sh
           sudo chmod +x x.py          
           ./x.py build --stage 2 || true
           

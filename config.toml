@@ -15,7 +15,7 @@ download-ci-llvm = false
 
 # Indicates whether the native libraries linked into Cargo will be statically
 # linked or not.
-cargo-native-static = true
+# cargo-native-static = true
 
 # Arguments passed to the `./configure` script, used during distcheck. You
 # probably won't fill this in but rather it's filled in by the `./configure`

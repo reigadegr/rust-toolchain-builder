@@ -40,6 +40,7 @@ jobs:
         run: |
           cd ferrocene
           # cargo build -Z build-std || true
+          export PATH=/usr/local/lib:$PATH
           sh  ../patch_llvm.sh
           sudo chmod +x x.py          
           ./x.py dist --stage 2

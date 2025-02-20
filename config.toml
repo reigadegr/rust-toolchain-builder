@@ -2,25 +2,25 @@
 #
 # See `src/bootstrap/defaults` for more information.
 # Note that this has no default value (x.py uses the defaults in `config.example.toml`).
-# profile = 'dist'
+profile = 'dist'
 
 [llvm]
 download-ci-llvm = false
 # When true, link libstdc++ statically into the rustc_llvm.
 # This is useful if you don't want to use the dynamic version of that
 # library provided by LLVM.
-static-libstdcpp = true
+# static-libstdcpp = true
 
-# [build]
+[build]
 
-# # Indicates whether the native libraries linked into Cargo will be statically
-# # linked or not.
-# cargo-native-static = true
+# Indicates whether the native libraries linked into Cargo will be statically
+# linked or not.
+cargo-native-static = true
 
-# # Arguments passed to the `./configure` script, used during distcheck. You
-# # probably won't fill this in but rather it's filled in by the `./configure`
-# # script. Useful for debugging.
-# configure-args = ['--enable-cargo-native-static', '--enable-llvm-static-stdcpp']
+# Arguments passed to the `./configure` script, used during distcheck. You
+# probably won't fill this in but rather it's filled in by the `./configure`
+# script. Useful for debugging.
+configure-args = ['--enable-cargo-native-static', '--enable-llvm-static-stdcpp']
 
 # [install]
 

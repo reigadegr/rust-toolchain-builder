@@ -28,4 +28,5 @@ jobs:
         run: |
           cd ferrocene
           sudo chmod +x x.py
-          ./x.py build
+          ./x.py build --stage 2
+

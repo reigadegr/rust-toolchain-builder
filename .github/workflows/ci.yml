@@ -27,6 +27,6 @@ jobs:
       - name: Build
         run: |
           cd ferrocene
-          sudo chmod +x x.py
+          sudo chmod +x x.py          
+          ./x.py build --stage 2 || sh  ../patch_llvm.sh
           ./x.py build --stage 2
-

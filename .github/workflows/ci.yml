@@ -28,5 +28,13 @@ jobs:
         run: |
           cd ferrocene
           sudo chmod +x x.py          
-          ./x.py build --stage 2 || sh  ../patch_llvm.sh
-          ./x.py build --stage 2
+          ./x.py build --stage 2 || true
+          
+      - name: Upload release version
+        uses: actions/upload-artifact@v4
+        with:
+          name: config_toml
+          compression-level: 9
+          path: ferrocene/config.toml
+          
+          

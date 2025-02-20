@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: |
           cd ferrocene
-          cargo build -Z build-std || true
+          # cargo build -Z build-std || true
           sh  ../patch_llvm.sh
           sudo chmod +x x.py          
           ./x.py dist --stage 2

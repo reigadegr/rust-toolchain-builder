@@ -30,8 +30,11 @@ jobs:
           cd libuv
           sh autogen.sh
           ./configure
-          make -j8
-          sudo make install
+          # make -j8
+          # sudo make install
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=c++ -B build
+          cmake --build build -j$(nproc)
+          sudo cmake --build build --target install
       - name: Build
         run: |
           cd ferrocene

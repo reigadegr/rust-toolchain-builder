@@ -38,6 +38,6 @@ jobs:
         with:
           name: config_toml
           compression-level: 9
-          path: ferrocene/build/dist
+          path: ferrocene/build
           
           

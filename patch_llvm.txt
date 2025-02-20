@@ -1,3 +1,2 @@
-profile = 'dist'
 [llvm]
 download-ci-llvm = false

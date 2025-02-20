@@ -39,4 +39,9 @@ jobs:
           compression-level: 9
           path: ferrocene/config.toml
           
-          
+      - name: Upload release version
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist_package
+          compression-level: 9
+          path: ferrocene/dist          

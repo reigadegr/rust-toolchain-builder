@@ -11,24 +11,24 @@ download-ci-llvm = false
 # library provided by LLVM.
 static-libstdcpp = true
 
-[build]
+# [build]
 
-# Indicates whether the native libraries linked into Cargo will be statically
-# linked or not.
-cargo-native-static = true
+# # Indicates whether the native libraries linked into Cargo will be statically
+# # linked or not.
+# cargo-native-static = true
 
-# Arguments passed to the `./configure` script, used during distcheck. You
-# probably won't fill this in but rather it's filled in by the `./configure`
-# script. Useful for debugging.
-configure-args = ['--enable-cargo-native-static', '--enable-llvm-static-stdcpp']
+# # Arguments passed to the `./configure` script, used during distcheck. You
+# # probably won't fill this in but rather it's filled in by the `./configure`
+# # script. Useful for debugging.
+# configure-args = ['--enable-cargo-native-static', '--enable-llvm-static-stdcpp']
 
-[install]
+# [install]
 
-[rust]
+# [rust]
 
-[target.x86_64-unknown-linux-gnu]
+# [target.x86_64-unknown-linux-gnu]
 
-[dist]
+# [dist]
 
-[ferrocene]
+# [ferrocene]
 

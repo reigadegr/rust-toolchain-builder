@@ -23,7 +23,7 @@ jobs:
       - name: Other deps
         run: |
           sudo apt update
-          sudo apt install gcc-multilib llvm clang make cmake awscli
+          sudo apt install gcc-multilib llvm clang make cmake
       - name: Build
         run: |
           cd ferrocene

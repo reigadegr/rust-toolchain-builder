@@ -1,0 +1,31 @@
+name: ci-build
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  release-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clone source
+        run: |
+          git clone --depth 1 https://github.com/ferrocene/ferrocene
+      - name: Setup rust toolchains
+        run: |
+          rustup default nightly
+          rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
+          rustup component add rust-src
+          rustup update
+      - name: Other deps
+        run: |
+          sudo apt update
+          sudo apt install gcc-multilib llvm clang make cmake awscli
+      - name: Build
+        run: |
+          cd ferrocene
+          sudo chmod +x x.py
+          ./x.py build

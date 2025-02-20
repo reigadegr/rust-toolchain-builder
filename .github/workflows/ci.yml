@@ -23,7 +23,7 @@ jobs:
       - name: Other deps
         run: |
           sudo apt update
-          sudo apt install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build
+          sudo apt install gcc-multilib llvm clang make cmake libclang-dev llvm-dev ninja-build libuv
       - name: Build
         run: |
           cd ferrocene

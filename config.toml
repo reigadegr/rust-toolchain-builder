@@ -9,7 +9,7 @@ download-ci-llvm = false
 # When true, link libstdc++ statically into the rustc_llvm.
 # This is useful if you don't want to use the dynamic version of that
 # library provided by LLVM.
-# static-libstdcpp = true
+static-libstdcpp = true
 
 [build]
 
